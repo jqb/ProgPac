@@ -8,6 +8,7 @@
       <th>Length</th>
       <th>Who</th>
       <th>When</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,13 @@
         {{ level.best_result.commited }}
         {% else %}
         <i>never</i>
+        {% endif %}
+      </td>
+      <td>
+        {% if level.best_result %}
+        <a href="{% url results_level level.pk %}">more</a>
+        {% else %}
+        <i>more</i>
         {% endif %}
       </td>
     </tr>

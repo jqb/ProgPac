@@ -120,3 +120,13 @@ class Results(TemplateView):
         return {
             "levels": models.Level.objects.all()
         }
+
+class ResultsLevel(TemplateView):
+    template_name = "results_level.html"
+
+    def get_context_data(self, *args, **kwargs):
+        return {
+            "results": models.Result.objects.order_by("program_length")
+        }
+
+    

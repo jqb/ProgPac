@@ -125,8 +125,12 @@ class ResultsLevel(TemplateView):
     template_name = "results_level.html"
 
     def get_context_data(self, *args, **kwargs):
+        results = models.Result.objects\
+                               .filter(level__pk=kwargs['level_pk'])\
+                               .order_by("program_length", "commited")
+
         return {
-            "results": models.Result.objects.order_by("program_length")
+            "results": results
         }
 
     

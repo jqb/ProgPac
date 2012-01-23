@@ -122,7 +122,7 @@ class Level(models.Model):
 
     def best_result(self):
         try:
-            return Result.objects.filter(level=self).order_by('program_length')[0]
+            return Result.objects.filter(level=self).order_by("-program_length", "-commited")[0]
         except IndexError:
             return None
 

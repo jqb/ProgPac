@@ -1,4 +1,4 @@
-$(function () {
+function main() {
   var canvas = document.getElementById('canvas');
   var game = new Game({
     tick: 150,
@@ -14,4 +14,8 @@ $(function () {
   } else {
     game.redraw();
   }
+}
+
+$(function () {
+    main();
 });
